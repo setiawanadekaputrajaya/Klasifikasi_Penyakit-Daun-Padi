@@ -1,0 +1,37 @@
+============================================================
+INFORMASI SPLIT DATASET
+============================================================
+
+Tanggal: 2026-03-09 00:19:40
+
+KONFIGURASI SPLIT:
+  Train size : 75%
+  Val size   : 15%
+  Test size  : 10%
+
+DISTRIBUSI DATA:
+
+TRAIN:
+  Bacterial Leaf Blight: 1500 gambar
+  Brown Spot: 1500 gambar
+  Leaf scald: 1500 gambar
+  TOTAL: 4500 gambar
+
+VALIDATION:
+  Bacterial Leaf Blight: 300 gambar
+  Brown Spot: 300 gambar
+  Leaf scald: 300 gambar
+  TOTAL: 900 gambar
+
+TEST:
+  Bacterial Leaf Blight: 200 gambar
+  Brown Spot: 200 gambar
+  Leaf scald: 200 gambar
+  TOTAL: 600 gambar
+
+LABEL ENCODER:
+  0: Bacterial Leaf Blight
+  1: Brown Spot
+  2: Leaf scald
+
+============================================================
