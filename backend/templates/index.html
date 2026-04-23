@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>Setiawan AI - Deteksi Penyakit Daun Padi</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- AOS Animation -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <!-- Background Animation -->
+    <div class="bg-animation">
+        <div class="wave"></div>
+        <div class="wave wave2"></div>
+        <div class="wave wave3"></div>
+    </div>
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg glass-nav">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="60">
+                <span class="fw-bold">Setiawan AI</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#home">Beranda</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#about">Tentang</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#how-it-works">Cara Kerja</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center min-vh-100">
+                <div class="col-lg-6" data-aos="fade-right" data-aos-duration="1000">
+                    <div class="hero-content">
+                        <h1 class="display-4 fw-bold mb-4">
+                            Deteksi Penyakit Daun Padi<br>
+                            <span class="gradient-text">Dengan Akurasi Tinggi</span>
+                        </h1>
+                        <p class="lead mb-4 text-muted">
+                            Gunakan teknologi AI MobileNetV2 untuk mendeteksi berbagai penyakit pada daun padi secara cepat dan akurat. Hasil real-time dengan tingkat kepercayaan yang jelas.
+                        </p>
+                        <div class="d-flex gap-3">
+                            <button class="btn-glow" onclick="document.getElementById('upload-section').scrollIntoView({behavior: 'smooth'})">
+                                <i class="fas fa-camera me-2"></i>Mulai Deteksi
+                            </button>
+                            <button class="btn-outline-glow" onclick="document.getElementById('about').scrollIntoView({behavior: 'smooth'})">
+                                <i class="fas fa-info-circle me-2"></i>Pelajari
+                            </button>
+                        </div>
+                        
+                        <!-- Stats -->
+                        <div class="row mt-5 g-4">
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="fw-bold mb-0 gradient-text">96%+</h3>
+                                    <small class="text-muted">Akurasi</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="fw-bold mb-0 gradient-text">&lt;5s</h3>
+                                    <small class="text-muted">Waktu Deteksi</small>
+                                </div>
+                            </div>
+                            <div class="col-4">
+                                <div class="stat-card">
+                                    <h3 class="fw-bold mb-0 gradient-text">3</h3>
+                                    <small class="text-muted">Kelas Penyakit</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6" data-aos="fade-left" data-aos-duration="1000">
+                    <div class="hero-illustration">
+                        <img src="https://cdn-icons-png.flaticon.com/512/1995/1995572.png" alt="Rice Plant" class="img-fluid floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upload Section -->
+    <section id="upload-section" class="upload-section">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="badge-gold mb-3">Upload Gambar</span>
+                <h2 class="display-5 fw-bold">Analisis Daun Padi Anda</h2>
+                <p class="text-muted">Upload gambar daun padi untuk memulai deteksi penyakit</p>
+            </div>
+
+            <div class="row justify-content-center">
+                <div class="col-lg-10">
+                    <div class="card-glass">
+                        <div class="row g-0">
+                            <!-- Upload Area -->
+                            <div class="col-md-6 p-4">
+                                <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                                    <div class="upload-icon">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </div>
+                                    <h5 class="mt-3">Klik atau Drag & Drop</h5>
+                                    <p class="text-muted small">JPG, PNG, JPEG (Max 16MB)</p>
+                                    <div class="format-badges mt-2">
+                                        <span class="badge-format">JPG</span>
+                                        <span class="badge-format">PNG</span>
+                                        <span class="badge-format">JPEG</span>
+                                    </div>
+                                </div>
+                                
+                                <input type="file" id="fileInput" accept=".jpg,.jpeg,.png" style="display: none;">
+                                
+                                <div class="preview-container mt-4" id="previewContainer">
+                                    <div class="preview-wrapper">
+                                        <img id="imagePreview" src="" alt="Preview">
+                                        <button class="btn-remove" onclick="removeImage()">
+                                            <i class="fas fa-times"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                                
+                                <button class="btn-analyze w-100 mt-4" id="predictBtn" onclick="predictImage()" disabled>
+                                    <span class="btn-text">
+                                        <i class="fas fa-microscope me-2"></i>Analisis Gambar
+                                    </span>
+                                    <span class="btn-icon">
+                                        <i class="fas fa-arrow-right"></i>
+                                    </span>
+                                </button>
+                            </div>
+
+                            <!-- Result Area -->
+                            <div class="col-md-6 p-4 result-col">
+                                <div class="loading" id="loading">
+                                    <div class="spinner-grow text-primary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <div class="spinner-grow text-secondary" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <div class="spinner-grow text-info" role="status">
+                                        <span class="visually-hidden">Loading...</span>
+                                    </div>
+                                    <p class="mt-3">AI sedang menganalisis gambar...</p>
+                                </div>
+                                
+                                <div class="error-message" id="errorMessage">
+                                    <i class="fas fa-exclamation-triangle me-2"></i>
+                                    <span id="errorText"></span>
+                                </div>
+                                
+                                <div class="result-container" id="resultContainer">
+                                    <div class="result-header">
+                                        <i class="fas fa-chart-line"></i>
+                                        <h4>Hasil Analisis</h4>
+                                    </div>
+                                    
+                                    <div class="result-card">
+                                        <div class="prediction-icon">
+                                            <i class="fas fa-leaf" id="predictionIcon"></i>
+                                        </div>
+                                        <div class="text-center mb-4">
+                                            <span id="predictionBadge" class="prediction-badge">-</span>
+                                        </div>
+                                        
+                                        <div class="confidence-section">
+                                            <div class="d-flex justify-content-between mb-2">
+                                                <span>Tingkat Keyakinan</span>
+                                                <span class="fw-bold" id="confidenceText">0%</span>
+                                            </div>
+                                            <div class="confidence-bar">
+                                                <div class="confidence-fill" id="confidenceBar"></div>
+                                            </div>
+                                        </div>
+                                        
+                                        <div class="probabilities-section mt-4">
+                                            <h6>Probabilitas per Kelas</h6>
+                                            <div id="probabilitiesContainer"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="badge-gold mb-3">Tentang Aplikasi</span>
+                <h2 class="display-5 fw-bold">Teknologi Modern untuk Pertanian</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h4>Deep Learning</h4>
+                        <p>Menggunakan arsitektur MobileNetV2 yang telah dioptimalkan untuk deteksi penyakit daun padi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h4>Real-time Analysis</h4>
+                        <p>Hasil deteksi muncul dalam hitungan detik dengan tingkat akurasi yang tinggi.</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="feature-card">
+                        <div class="feature-icon">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Akurat & Terpercaya</h4>
+                        <p>Dilatih dengan ribuan dataset gambar daun padi untuk hasil yang akurat.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="howit-section">
+        <div class="container">
+            <div class="section-header text-center mb-5" data-aos="fade-up">
+                <span class="badge-gold mb-3">Cara Kerja</span>
+                <h2 class="display-5 fw-bold">Mudah Digunakan</h2>
+            </div>
+            <div class="row g-4">
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                    <div class="step-card">
+                        <div class="step-number">1</div>
+                        <div class="step-icon">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                        </div>
+                        <h4>Upload Gambar</h4>
+                        <p>Upload gambar daun padi yang ingin dianalisis</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                    <div class="step-card">
+                        <div class="step-number">2</div>
+                        <div class="step-icon">
+                            <i class="fas fa-microscope"></i>
+                        </div>
+                        <h4>AI Analysis</h4>
+                        <p>AI akan menganalisis gambar secara otomatis</p>
+                    </div>
+                </div>
+                <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                    <div class="step-card">
+                        <div class="step-number">3</div>
+                        <div class="step-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <h4>Lihat Hasil</h4>
+                        <p>Dapatkan hasil diagnosis dan tingkat keyakinan</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h4><img src="{{ url_for('static', filename='images/logo.png') }}" alt="" height="60"> Setiawan AI</h4>
+                    <p>Membantu petani mendeteksi penyakit daun padi dengan teknologi AI untuk hasil panen yang lebih baik.</p>
+                </div>
+                <div class="col-md-3">
+                    <h5>Teknologi</h5>
+                    <ul>
+                        <li>MobileNetV2</li>
+                        <li>TensorFlow</li>
+                        <li>Flask</li>
+                    </ul>
+                </div>
+                <div class="col-md-3">
+                    <h5>Kontak</h5>
+                    <ul>
+                        <li><i class="fas fa-envelope me-2"></i>setiawanadekaputrajaya@gmail.com</li>
+                        <li><i class="fas fa-phone me-2"></i>+62 812 6267 6947</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="text-center mt-4 pt-3 border-top">
+                <p>&copy; 2026 Setiawan AI - Deteksi Penyakit Daun Padi</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            once: true,
+            duration: 1000
+        });
+    </script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+</html>

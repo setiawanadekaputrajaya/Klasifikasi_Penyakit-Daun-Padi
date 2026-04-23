@@ -1,0 +1,577 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow-x: hidden;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* ========== BACKGROUND ANIMATION ========== */
+.bg-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    background: url('https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg') repeat-x;
+    background-size: 1000px 100px;
+    animation: wave 10s linear infinite;
+    opacity: 0.1;
+}
+
+.wave2 {
+    bottom: -20px;
+    animation: wave2 15s linear infinite;
+    opacity: 0.05;
+}
+
+.wave3 {
+    bottom: -40px;
+    animation: wave3 20s linear infinite;
+    opacity: 0.03;
+}
+
+@keyframes wave {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 1000px; }
+}
+
+@keyframes wave2 {
+    0% { background-position-x: 0; }
+    100% { background-position-x: -1000px; }
+}
+
+@keyframes wave3 {
+    0% { background-position-x: 0; }
+    100% { background-position-x: 500px; }
+}
+
+/* ========== NAVBAR ========== */
+.glass-nav {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
+}
+
+.navbar-brand {
+    font-size: 1.5rem;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    transition: all 0.3s;
+    margin: 0 10px;
+}
+
+.nav-link:hover {
+    color: #11998e !important;
+    transform: translateY(-2px);
+}
+
+/* ========== HERO SECTION ========== */
+.hero-section {
+    min-height: 100vh;
+    padding-top: 80px;
+    position: relative;
+}
+
+.hero-content {
+    padding: 20px;
+}
+
+.gradient-text {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.badge-gold {
+    background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+    padding: 8px 20px;
+    border-radius: 50px;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: 500;
+    display: inline-block;
+}
+
+.btn-glow {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+    box-shadow: 0 4px 15px rgba(17, 153, 142, 0.3);
+}
+
+.btn-glow:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(17, 153, 142, 0.4);
+    color: white;
+}
+
+.btn-outline-glow {
+    background: transparent;
+    border: 2px solid #11998e;
+    padding: 12px 30px;
+    border-radius: 50px;
+    color: #11998e;
+    font-weight: 600;
+    transition: all 0.3s;
+}
+
+.btn-outline-glow:hover {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    color: white;
+    transform: translateY(-2px);
+}
+
+.stat-card {
+    text-align: center;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 15px;
+    backdrop-filter: blur(10px);
+}
+
+.floating {
+    animation: floating 3s ease-in-out infinite;
+}
+
+@keyframes floating {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-20px); }
+}
+
+.hero-illustration img {
+    max-width: 100%;
+    filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.1));
+}
+
+/* ========== UPLOAD SECTION ========== */
+.upload-section {
+    padding: 80px 0;
+    background: rgba(255, 255, 255, 0.5);
+}
+
+.section-header h2 {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.card-glass {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.upload-area {
+    border: 3px dashed #ddd;
+    border-radius: 20px;
+    padding: 40px;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s;
+    background: #fafafa;
+}
+
+.upload-area:hover {
+    border-color: #11998e;
+    background: linear-gradient(135deg, rgba(17, 153, 142, 0.05), rgba(56, 239, 125, 0.05));
+    transform: translateY(-5px);
+}
+
+.upload-icon i {
+    font-size: 64px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.format-badges {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.badge-format {
+    background: #f0f0f0;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 0.75rem;
+    color: #666;
+}
+
+.preview-container {
+    display: none;
+}
+
+.preview-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+
+.preview-wrapper img {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+.btn-remove {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: rgba(0, 0, 0, 0.5);
+    border: none;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    color: white;
+    transition: all 0.3s;
+}
+
+.btn-remove:hover {
+    background: rgba(0, 0, 0, 0.8);
+    transform: scale(1.1);
+}
+
+.btn-analyze {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border: none;
+    padding: 14px;
+    border-radius: 50px;
+    color: white;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+.btn-analyze:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.btn-analyze:not(:disabled):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(17, 153, 142, 0.3);
+}
+
+.btn-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ========== RESULT SECTION ========== */
+.result-col {
+    background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+}
+
+.result-container {
+    display: none;
+    animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.result-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.result-header i {
+    font-size: 28px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.result-card {
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border-radius: 20px;
+    padding: 25px;
+    color: white;
+}
+
+.prediction-icon {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.prediction-icon i {
+    font-size: 48px;
+}
+
+.prediction-badge {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 10px 25px;
+    border-radius: 50px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    display: inline-block;
+}
+
+.confidence-section {
+    margin-top: 20px;
+}
+
+.confidence-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.confidence-fill {
+    height: 100%;
+    background: white;
+    border-radius: 10px;
+    transition: width 1s ease;
+    width: 0%;
+}
+
+.probability-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    font-size: 0.85rem;
+}
+
+.probability-item > span:first-child {
+    width: 110px;
+}
+
+.probability-bar {
+    flex: 1;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin: 0 10px;
+    overflow: hidden;
+}
+
+.probability-fill {
+    height: 100%;
+    background: white;
+    border-radius: 5px;
+    transition: width 0.5s ease;
+}
+
+.loading {
+    display: none;
+    text-align: center;
+    padding: 60px 20px;
+}
+
+.loading .spinner-grow {
+    margin: 0 5px;
+}
+
+.error-message {
+    display: none;
+    background: #fee;
+    color: #dc3545;
+    padding: 20px;
+    border-radius: 15px;
+    text-align: center;
+}
+
+/* ========== ABOUT SECTION ========== */
+.about-section {
+    padding: 80px 0;
+    background: white;
+}
+
+.feature-card {
+    text-align: center;
+    padding: 30px;
+    border-radius: 20px;
+    transition: all 0.3s;
+    background: #f8f9fa;
+}
+
+.feature-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.feature-icon {
+    width: 70px;
+    height: 70px;
+    margin: 0 auto 20px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.feature-icon i {
+    font-size: 30px;
+    color: white;
+}
+
+/* ========== HOW IT WORKS SECTION ========== */
+.howit-section {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #f5f7fa, #c3cfe2);
+}
+
+.step-card {
+    text-align: center;
+    padding: 40px 20px;
+    background: white;
+    border-radius: 20px;
+    position: relative;
+    transition: all 0.3s;
+}
+
+.step-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+}
+
+.step-number {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+.step-icon {
+    font-size: 48px;
+    margin-bottom: 20px;
+    background: linear-gradient(135deg, #11998e, #38ef7d);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+/* ========== FOOTER ========== */
+.footer {
+    background: #1a1a2e;
+    color: white;
+    padding: 50px 0 20px;
+}
+
+.footer h4, .footer h5 {
+    margin-bottom: 20px;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+    opacity: 0.8;
+}
+
+.footer ul li:hover {
+    opacity: 1;
+}
+
+/* ========== RESPONSIVE ========== */
+@media (max-width: 768px) {
+    .hero-section {
+        text-align: center;
+        padding-top: 100px;
+    }
+    
+    .hero-content {
+        margin-bottom: 40px;
+    }
+    
+    .display-4 {
+        font-size: 2rem;
+    }
+    
+    .section-header h2 {
+        font-size: 1.8rem;
+    }
+    
+    .stat-card {
+        margin-bottom: 10px;
+    }
+    
+    .probability-item {
+        flex-wrap: wrap;
+    }
+    
+    .probability-item > span:first-child {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    .probability-bar {
+        margin: 5px 0;
+    }
+}
