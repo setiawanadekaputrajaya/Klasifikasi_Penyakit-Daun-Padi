@@ -67,7 +67,7 @@ python evaluate.py
 
 Jelaskan dataset yang digunakan:
 - Sumber data ( Kaggle)
-- Jumlah data ( Normal : 5000 , TBC : 5000)
+- Jumlah data ( Brown spot : 2000 , Bacterial Leaf Blight : 2000, Leaf Scald : 2000 )
 - Pembagian data (75/15/10)
 - Preprocessing yang dilakukan
 
@@ -82,13 +82,13 @@ Proyek ini menggunakan **MobileNetV2**, arsitektur CNN yang ringan dan efisien u
 
 | Metrik | Nilai |
 |--------|-------|
-| Accuracy | 1.00 |
-| Precision | 1.00 |
-| Recall | 1.00 |
-| F1-Score | 1.00 |
+| Accuracy | 0.96 |
+| Precision | 0.96 |
+| Recall | 0.96 |
+| F1-Score | 0.96 |
 
-| Test Accuracy : 0.9990 |
-| Test Loss : 0.1658 |
+| Test Accuracy : 0.9633 |
+| Test Loss : 0.2400 |
 
 *Update sesuai hasil training*
 
@@ -106,4 +106,4 @@ Silakan buat pull request atau issue jika ingin berkontribusi.
 
 ## 📄 Lisensi
 
-[Rafiq 23]
+[Setiawan 22]
